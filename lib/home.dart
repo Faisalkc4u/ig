@@ -58,7 +58,7 @@ class _HomeState extends State<Home> {
                     if (await user.getUserData()) {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              DownloadPage(user.user)));
+                              DownloadPage(user.ob)));
                     } else {
                       showSnackBarMEssages('Enter a valid username');
                     }

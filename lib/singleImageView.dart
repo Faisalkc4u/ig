@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:image_downloader/image_downloader.dart';
-import 'Api_model.dart';
 
 class SingleImageView extends StatefulWidget {
-  Post _data;
+  String _data;
   int index;
   SingleImageView(this._data,this.index);
   @override
@@ -23,12 +22,13 @@ class _SingleImageViewState extends State<SingleImageView> {
         color: Colors.redAccent,
         child:GestureDetector(
           child:  Container(
-          height: size.height*.10,
-          child: Text('Download'),),
+            padding: EdgeInsets.all(5),
+          height: size.height*.07,
+          child: Align(child: Text('Download',style: TextStyle(color: Colors.white,fontSize: 25,),textAlign: TextAlign.center,),alignment: Alignment.center,),),
           onTap: ()async{
             try {
   // Saved with this method.
-  var imageId = await  ImageDownloader.downloadImage(widget._data.thumbnail_src);
+  var imageId = await  ImageDownloader.downloadImage(widget._data);
   if (imageId == null) {
     return;
   }
@@ -49,7 +49,7 @@ class _SingleImageViewState extends State<SingleImageView> {
       child: Hero(
           tag: widget.index,
           
-          child: Image.network(widget._data.thumbnail_src,fit: BoxFit.contain,),
+          child: Image.network(widget._data,fit: BoxFit.contain,),
         ),
     width: double.infinity,
     height: MediaQuery.of(context).size.height,

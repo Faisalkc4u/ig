@@ -41,5 +41,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>TODO</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>TODO</string>
 </dict>
 </plist>
